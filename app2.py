@@ -5,9 +5,10 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 
-trained_model = tf.keras.models.load_model('facial_emotions_model.h5')
+trained_model = tf.keras.models.load_model('EmotionDetection/facial_emotions_model.h5')
 classes=['Angry','Disgust','Fear','Happy','Neutral','Sad','Surprise']
 cascade = cv2.CascadeClassifier("haarcascade.xml")
+
 a = st.empty()
 
 class VideoProcessor:
@@ -27,10 +28,8 @@ class VideoProcessor:
         y_pred = np.argmax(result[0])
         pred = classes[y_pred]
         a.write(pred)
-        return av.VideoFrame.from_ndarray(frame, format='bgr24')
-#   	return av.VideoFrame.from_ndarray(frame)
-
-
+        # return av.VideoFrame.from_ndarray(frame, format='bgr24')
+        return av.VideoFrame.from_ndarray(frame)
 
 webrtc_streamer(key="key", video_processor_factory=VideoProcessor,
 				rtc_configuration=RTCConfiguration(
