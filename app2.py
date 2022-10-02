@@ -5,7 +5,7 @@ import streamlit as st
 import tensorflow as tf
 import numpy as np
 
-trained_model = tf.keras.models.load_model('EmotionDetection/facial_emotions_model.h5')
+trained_model = tf.keras.models.load_model('facial_emotions_model.h5')
 classes=['Angry','Disgust','Fear','Happy','Neutral','Sad','Surprise']
 cascade = cv2.CascadeClassifier("haarcascade.xml")
 
