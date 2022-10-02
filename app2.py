@@ -28,7 +28,7 @@ class VideoProcessor:
         pred = classes[y_pred]
         a.write(pred)
 #         return av.VideoFrame.from_ndarray(frame, format='bgr24')
-	  return av.VideoFrame.from_ndarray(frame)
+  	return av.VideoFrame.from_ndarray(frame)
 
 
 
