@@ -22,8 +22,8 @@ a = st.empty()
 face_cascade = cv2.CascadeClassifier('haarcascade.xml')
 # a.text_area(value='detecting', label='')
 while True:
+    ret, frame = cam.read()
     if frame or frame.any():
-        ret, frame = cam.read()
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray, 1.1, 4)
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
